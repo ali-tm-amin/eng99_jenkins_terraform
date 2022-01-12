@@ -23,7 +23,7 @@ variable "app_instance_type"{
 
 # VPC ID
 variable "vpc_id"{
-  default = "vpc-033457a3332b58017"
+  default = "vpc-08ea81af830a3f891"
 }
 
 # VPC ID
