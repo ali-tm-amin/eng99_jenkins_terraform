@@ -38,7 +38,7 @@ resource "aws_instance" "app_instance" {
 
 resource "aws_vpc" "eng99_ali_terraform_VPC" {
   cidr_block = var.cidr_block
-  #instance_tenancy = "default"
+ 
   tags = {
     Name = "eng99_ali_terraform_VPC"
   }
@@ -54,16 +54,16 @@ resource "aws_subnet" "eng99_ali_terraform_public_SN" {
     Name = "eng99_ali_terraform_public_SN"
   }
 }
-resource "aws_subnet" "eng99_ali_terraform_private_SN" {
-  vpc_id     = aws_vpc.eng99_ali_terraform_VPC.id
-  cidr_block = "10.0.2.0/24"
-  map_public_ip_on_launch = false
-  availability_zone = "eu-west-1a"
+# resource "aws_subnet" "eng99_ali_terraform_private_SN" {
+#   vpc_id     = aws_vpc.eng99_ali_terraform_VPC.id
+#   cidr_block = "10.0.2.0/24"
+#   map_public_ip_on_launch = false
+#   availability_zone = "eu-west-1a"
 
-  tags = {
-    Name = "eng99_ali_terraform_private_SN"
-  }
-}
+#   tags = {
+#     Name = "eng99_ali_terraform_private_SN"
+#   }
+# }
 
  resource "aws_internet_gateway" "eng99_ali_terraform_igw" {
    vpc_id = aws_vpc.eng99_ali_terraform_VPC.id
@@ -92,7 +92,7 @@ resource "aws_route_table_association" "eng99_ali_terraform_subnet_associate" {
  }
 
 resource "aws_security_group" "allow_tls" {
-  name        = "eng99_ali_terraform_sg"
+  name        = "allow_tls"
   description = "Allow TLS inbound traffic"
   vpc_id = var.vpc_id
   
@@ -140,6 +140,6 @@ egress {
   }
 
   tags = {
-    Name = "eng99_ali_terraform_sg"
+    Name = "allow_tls"
   }
 }  
