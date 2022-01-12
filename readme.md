@@ -18,9 +18,38 @@
 5. Creating the first administrator user
 6. Set up credentials, go to `Configuration Systems` then scrol down to `Global Properties` select `ENV VAR`then add
 
-        - AWS_ACCESS_KEY_ID
-        - AWS_SECRET_ACCESS_KEY
+        - Name: AWS_ACCESS_KEY_ID, Value: the key
+        - Name: AWS_SECRET_ACCESS_KEY: Value: secret key
+        - Name AWS_DEFAULT_REGION: Value eu-west-1
 
 **Step2:** Build your own Jenkins server on AWS ec2 instance
 - Set up credentials
+- Create a pipeline job
+- Add pipeline script
+
+pipeline{
+    agent any
+    tools {
+        terraform 'terraform-11'
+    }
+    stages{
+        stage("Git Checkout"){
+            steps{
+                git branch: 'main', url: 'https://github.com/ali-tm-amin/eng99_jenkins_terraform.git'
+            }
+        }
+        stage("Terraform Init"){
+            steps{
+                sh 'terraform init'
+            }
+        }
+        stage("Terraform Apply"){
+            steps{
+                sh 'terraform apply --auto-approve'
+            }
+        }
+    }
+}
+
+- 
 

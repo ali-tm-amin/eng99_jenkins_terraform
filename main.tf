@@ -9,8 +9,8 @@ resource "aws_instance" "app_instance" {
   # Add the ami id for 18.06LTS
   ami = var.app_ami_id
   instance_type = var.type_of_machine
-  vpc_security_group_ids = ["sg-0840085c222a117d2"]
-  subnet_id              = "subnet-0a9f2eb7a31d6e2cd"
+  #vpc_security_group_ids = ["sg-0840085c222a117d2"]
+  #subnet_id              = "subnet-0a9f2eb7a31d6e2cd"
   # Enable IP as it's our app instance
   associate_public_ip_address = true
   
@@ -25,8 +25,8 @@ resource "aws_instance" "app_instance" {
    ami = var.db_ami_id
    instance_type = var.type_of_machine
    #subnet_id = var.private_subnet
-   vpc_security_group_ids = ["sg-0840085c222a117d2"]
-   subnet_id              = "subnet-0a9f2eb7a31d6e2cd"
+   #vpc_security_group_ids = ["sg-0840085c222a117d2"]
+   #subnet_id              = "subnet-0a9f2eb7a31d6e2cd"
    # Enable IP as it's our app instance
    associate_public_ip_address = true
    # add tags for Name
