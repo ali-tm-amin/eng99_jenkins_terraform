@@ -1,0 +1,2 @@
+[db]
+ec2-instance ansible_host=54.75.30.52 ansible_user=ubuntu
