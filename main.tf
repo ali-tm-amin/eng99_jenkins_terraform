@@ -25,6 +25,8 @@ resource "aws_instance" "app_instance" {
 resource "aws_instance" "db_instance" {
   ami = var.app_ami_id
   instance_type = var.app_instance_type
+  vpc_security_group_ids = ["sg-0840085c222a117d2"]
+  subnet_id = "subnet-0a9f2eb7a31d6e2cd"
   # Enable public IP
   associate_public_ip_address = false
   # added eng99.pem so one can ssh

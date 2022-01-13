@@ -4,6 +4,11 @@
 **Step1**: Create CI CD pipeline 
 - [install jenkins](
 https://www.jenkins.io/doc/book/installing/linux/)
+
+1. On your local mechine install terraform and move it to /usr/bin directory
+- `sudo mv terraform /usr/bin`
+- terraform --version
+
 - Set up jenkins
 - Sample commands:
 
@@ -13,24 +18,48 @@ https://www.jenkins.io/doc/book/installing/linux/)
     - Restart the Jenkins service: `brew services restart jenkins-lts`
     - Update the Jenkins version: `brew upgrade jenkins-lts`
 
-1. Browse to http://localhost:8080
-2. Navigate to directory to find password `/Users/amin/.jenkins/secrets/initialAdminPassword`, copy & past to login
-3. Install suggested plugins
-4. Install `CloudBees AWS Credentials Plugin`
-5. Install `Ansible`
-6. Install `terraform`
-7. Creating the first administrator user
-8. Set up credentials, go to `Configuration Systems` then scrol down to `Global Properties` select `ENV VAR`then add
+2. Browse to http://localhost:8080
+3. Navigate to directory to find password `/Users/amin/.jenkins/secrets/initialAdminPassword`, copy & past to login
+4. Install suggested plugins
+
+5. Install `CloudBees AWS Credentials Plugin`
+
+6. Install `Ansible` plugins
+ - Go to jenkins `Global Configurations` find `ansible` add put name and the path to ansible on the ec2 instance:
+    - On the terminal `which ansible` 
+    - /usr/ansible only add `/usr/` to the path on jenkins config
+
+![](/images/jenkins_ansible.png)
+
+7. Install `terraform` and `sudo mv terraform /usr/bin`
+
+8. Creating the first administrator user
+
+9. Set up credentials, go to `Configuration Systems` then scrol down to `Global Properties` select `ENV VAR`then add
 
 ![](/images/global.png)
 
-9. Add terraform directory in jenkin's `Global Tool Configuration`
+10. Add terraform directory in jenkin's `Global Tool Configuration`
 
 ![](/images/terraform.png)
 
-10. Add AWS credentials to jenkin's `global credentials`
+11. Add AWS credentials to jenkin's `global credentials`
 
 ![](/images/credentials.png)
+
+12. SSH into the ec2_jenkins_instance created to download 'terraform` on it
+
+    - Go to terraform.io, copy the link address for the amd64 Linux 
+    - sudo wget https://releases.hashicorp.com/terraform/1.1.3/terraform_1.1.3_linux_amd64.zip
+    - sudo apt install unzip
+    - check if its installed ls
+    - wget unzip terraform_1.1.3_linux_amd64.zip
+    - check again with ll
+    ![](/images/terraform_ec2_install.png)
+    
+13. Install ansible on ec2 instance 
+ - [follow this link](https://www.ktexperts.com/how-to-install-ansible-in-amazon-linux-machine/)
+
 
 **Step2:** Build your own Jenkins server on AWS ec2 instance
 1. configure/install  Terraform plugins to run Terraform script to launch AWS services
@@ -63,7 +92,7 @@ pipeline{
     }
 }
 
-- 
+- To run ansible playbook on ec2 follow this [link](https://www.youtube.com/watch?v=PRpEbFZi7nI&t=329s)
 
 **Step3:** create a Webhook on Github to trigger first job of Terraform in Jenkins from your localhost push
 
