@@ -28,7 +28,7 @@ resource "aws_instance" "db_instance" {
   vpc_security_group_ids = ["sg-0840085c222a117d2"]
   subnet_id = "subnet-0a9f2eb7a31d6e2cd"
   # Enable public IP
-  associate_public_ip_address = false
+  associate_public_ip_address = true
   # added eng99.pem so one can ssh
   # Ensure we have this key in the .ssh folder
   key_name = var.aws_key_name
