@@ -1,5 +1,5 @@
 ---
-- hosts: aws 
+- hosts: app 
   gather_facts: true
 #WHat facts do we want to see while installing
 

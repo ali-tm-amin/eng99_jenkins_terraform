@@ -5,21 +5,18 @@
 - [install jenkins](
 https://www.jenkins.io/doc/book/installing/linux/)
 
-1. On your local mechine install terraform and move it to /usr/bin directory
+1. Create jenkin agent on aws
+  - install java
+  - Install jenkins on ec2 instance [link to follow](https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/#install-and-configure-jenkins)
+  - Open firwall `sudo ufw allow 8080`
+  - 
+
+2. Install terraform and move it to /usr/bin directory
 - `sudo mv terraform /usr/bin`
 - terraform --version
 
-- Set up jenkins
-- Sample commands:
-
-    - Install the latest LTS version: `brew install jenkins-lts`
-    - Install a specific LTS version:` brew install jenkins-lts@YOUR_VERSION`
-    - Start the Jenkins service: `brew services start jenkins-lts`
-    - Restart the Jenkins service: `brew services restart jenkins-lts`
-    - Update the Jenkins version: `brew upgrade jenkins-lts`
-
-2. Browse to http://localhost:8080
-3. Navigate to directory to find password `/Users/amin/.jenkins/secrets/initialAdminPassword`, copy & past to login
+3. Browse to ec2_DNS_IP_Adress:8080
+ Navigate to directory to find password `/Users/amin/.jenkins/secrets/initialAdminPassword`, or run `cat /var/lib/jenkins/secrets/initialAdminPassword` copy & past to login
 4. Install suggested plugins
 
 5. Install `CloudBees AWS Credentials Plugin`
@@ -62,7 +59,7 @@ https://www.jenkins.io/doc/book/installing/linux/)
 
 
 **Step2:** Build your own Jenkins server on AWS ec2 instance
-1. configure/install  Terraform plugins to run Terraform script to launch AWS services
+1. configure/install Terraform plugins to run Terraform script to launch AWS services
 2. launch 2 ec2 instances for app and db, create VPC, public and private subnets with relevant security groups for app and db
 
 - Create a pipeline job
@@ -105,3 +102,4 @@ pipeline{
 **Step7:** ensure to launch node app on public ip with posts working
 
 
+## Will be continued ...
