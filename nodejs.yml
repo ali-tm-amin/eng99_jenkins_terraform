@@ -28,6 +28,7 @@
       sudo apt install npm -y
       npm install -g npm@latest
       npm install mongoose -y
+      npm install express -y
   # Downloading pm2
   - name: Install pm2
     npm:
@@ -39,6 +40,7 @@
   - name: seed + run app
     shell: |
       #cd awsFileTransfer/
+      
       cd app/
       npm install
       node app/seeds/seed.js
