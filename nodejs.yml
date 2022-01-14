@@ -42,7 +42,7 @@
   - name: seed + run app
     shell: |
       #cd awsFileTransfer/
-      cp -R app/seeds home/ubuntu/
+      cp -R app/seeds home/ubuntu/seeds
       cd app/
       npm install
       node seeds/seed.js
