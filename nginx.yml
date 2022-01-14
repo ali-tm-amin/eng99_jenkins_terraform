@@ -17,7 +17,7 @@
   - name: Setting reverse proxy
       shell: |
         git clone https://github.com/Delwar35/awsFileTransfer
-        sudo rm -rf /etc/nginx/sites-available/default
+        rm -rf /etc/nginx/sites-available/default
         cp ./awsFileTransfer/default /etc/nginx/sites-available/default
       become_user: root
 
