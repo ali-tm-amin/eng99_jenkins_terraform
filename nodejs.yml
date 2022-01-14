@@ -25,10 +25,12 @@
 
   - name: download latest npm + Mongoose
     shell: |
-      sudo apt install npm -y
+      apt install npm -y
       npm install -g npm@latest
       npm install mongoose -y
       npm install express -y
+      set NODE_PATH=app/seeds/seed.js;%NODE_PATH%
+    become_user: root
   # Downloading pm2
   - name: Install pm2
     npm:
@@ -40,10 +42,10 @@
   - name: seed + run app
     shell: |
       #cd awsFileTransfer/
-      
+      cp -R app/seeds home/ubuntu/
       cd app/
       npm install
-      node app/seeds/seed.js
+      node seeds/seed.js
       #pm2 kill
       #pm2 start app.js
 
