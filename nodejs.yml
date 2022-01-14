@@ -39,7 +39,7 @@
   - name: seed + run app
     shell: |
       cd awsFileTransfer/
-      cd app/app
+      cd app
       npm install
       node seeds/seed.js
       #pm2 kill
