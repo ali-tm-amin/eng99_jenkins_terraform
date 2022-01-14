@@ -18,8 +18,8 @@
 
   - name: Clone git
     git:
-      repo: https://github.com/ali-tm-amin/Eng99App.git
-      dest: /home/vagrant/app
+      repo: https://github.com/Delwar35/awsFileTransfer
+      dest: /home/ubuntu
       clone: yes
       update: yes
 
@@ -41,8 +41,8 @@
       echo 'export DB_HOST="mongodb://34.244.178.76:27017/posts"' >> .bashrc
   - name: seed + run app
     shell: |
-      #cd awsFileTransfer/
-      cp -R app/seeds home/ubuntu/seeds
+      cd awsFileTransfer/
+      #cp -R app/seeds home/ubuntu/seeds
       cd app/
       npm install
       node seeds/seed.js
