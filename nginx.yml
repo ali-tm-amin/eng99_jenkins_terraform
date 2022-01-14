@@ -14,9 +14,9 @@
     apt: pkg=nginx state=present
     become_user: root
   - name: Ansible copy file to remote server
-  copy:
-    src: /etc/ansible/default
-    dest: /etc/nginx/sites-available/default
+    copy:
+      src: /etc/ansible/default
+      dest: /etc/nginx/sites-available/default
 # what is the end goal for this task
 # nginx status running
 
