@@ -9,24 +9,24 @@
 
   become: true
     tasks:
-  - name:
-    shell: |
-      sudo apt-get update -y
-      sudo apt-get upgrade -y
-      touch itworked.txt
-      
-  - name: Installing mongodb in db VM
-    apt: pkg=mongodb state=present
+    - name:
+      shell: |
+        sudo apt-get update -y
+        sudo apt-get upgrade -y
+        touch itworked.txt
+        
+    - name: Installing mongodb in db VM
+      apt: pkg=mongodb state=present
 
-  - name: restarting db and chnaging conf file
-    shell: |
-      git clone https://github.com/Delwar35/awsFileTransfer
-      sudo rm -rf /etc/mongod.conf
-      sudo cp ./mongod.conf /etc/mongod.conf
-      sudo systemctl restart mongodb
-      sudo systemctl enable mongodb
-    become_user: root
-    
+    - name: restarting db and chnaging conf file
+      shell: |
+        git clone https://github.com/Delwar35/awsFileTransfer
+        sudo rm -rf /etc/mongod.conf
+        sudo cp ./mongod.conf /etc/mongod.conf
+        sudo systemctl restart mongodb
+        sudo systemctl enable mongodb
+      become_user: root
+
   # tasks:
   # - name: install mongodb
   #   apt: pkg=mongodb state=present
