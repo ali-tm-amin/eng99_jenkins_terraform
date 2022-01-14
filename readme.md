@@ -9,52 +9,53 @@ https://www.jenkins.io/doc/book/installing/linux/)
   - install java
   - Install jenkins on ec2 instance [link to follow](https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/#install-and-configure-jenkins)
   - Open firwall `sudo ufw allow 8080`
-  - 
 
-2. Install terraform and move it to /usr/bin directory
-- `sudo mv terraform /usr/bin`
-- terraform --version
-
-3. Browse to ec2_DNS_IP_Adress:8080
+2. Browse to ec2_DNS_IP_Adress:8080 ie `http://63.33.202.207:8080/`
  Navigate to directory to find password `/Users/amin/.jenkins/secrets/initialAdminPassword`, or run `cat /var/lib/jenkins/secrets/initialAdminPassword` copy & past to login
-4. Install suggested plugins
 
-5. Install `CloudBees AWS Credentials Plugin`
+3. Install suggested plugins
 
-6. Install `Ansible` plugins
+4. Install `CloudBees AWS Credentials Plugin`
+
+5. Install `Ansible` plugins
  - Go to jenkins `Global Configurations` find `ansible` add put name and the path to ansible on the ec2 instance:
-    - On the terminal `which ansible` 
-    - /usr/ansible only add `/usr/` to the path on jenkins config
+- On the terminal `which ansible` 
+- /usr/ansible only add `/usr/` to the path on jenkins config
 
 ![](/images/jenkins_ansible.png)
 
-7. Install `terraform` and `sudo mv terraform /usr/bin`
+6. Install `terraform`
 
-8. Creating the first administrator user
+        - Go inside the Linux Server Terminal
+        - Become root user: sudo su
+        - Download Terraform package:
+        - Go to terraform.io, copy the link address for the amd64 Linux
+        - wget https://releases.hashicorp.com/terraform/0.13.5/terraform_0.13.5_linux_amd64.zip
+        - Unzip Terraform package: unzip terraform_1.1.3_linux_amd64.zip
+        - check terraform binary: ll
+        - execute the binary file for installing terraform: ./terraform
+        - Verify the version of terraform: terraform --version
+        - Set the Path for terraform: pwd
+        - echo $"export PATH=\$PATH:$(pwd)" >> ~/.bash_profile
+        - source ~/.bash_profile
+![](/images/terraform_ec2_install.png)
 
-9. Set up credentials, go to `Configuration Systems` then scrol down to `Global Properties` select `ENV VAR`then add
+7. Creating the first administrator user
+
+8. Set up credentials, go to `Configuration Systems` then scrol down to `Global Properties` select `ENV VAR`then add
 
 ![](/images/global.png)
 
-10. Add terraform directory in jenkin's `Global Tool Configuration`
+9. Add terraform directory in jenkin's `Global Tool Configuration`
 
 ![](/images/terraform.png)
 
-11. Add AWS credentials to jenkin's `global credentials`
+10. Add AWS credentials to jenkin's `global credentials`
 
 ![](/images/credentials.png)
-
-12. SSH into the ec2_jenkins_instance created to download 'terraform` on it
-
-    - Go to terraform.io, copy the link address for the amd64 Linux 
-    - sudo wget https://releases.hashicorp.com/terraform/1.1.3/terraform_1.1.3_linux_amd64.zip
-    - sudo apt install unzip
-    - check if its installed ls
-    - wget unzip terraform_1.1.3_linux_amd64.zip
-    - check again with ll
-    ![](/images/terraform_ec2_install.png)
     
-13. Install ansible on ec2 instance 
+    
+11. Install ansible on ec2 instance 
  - [follow this link](https://www.ktexperts.com/how-to-install-ansible-in-amazon-linux-machine/)
 
 
