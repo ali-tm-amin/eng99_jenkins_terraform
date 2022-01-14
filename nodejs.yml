@@ -44,8 +44,9 @@
       cd awsFileTransfer/
       cp -R app/seeds home/ubuntu/seeds
       cd app/
-      npm install
-      node seeds/seed.js
+      npm start
+      #npm install
+      #node seeds/seed.js
       #pm2 kill
       #pm2 start app.js
 
