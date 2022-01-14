@@ -20,5 +20,5 @@
 # what is the end goal for this task
 # nginx status running
 
-  - name: restart nginx
-    service: name=nginx state=restarted
+  # - name: restart nginx
+  #   service: name=nginx state=restarted
