@@ -13,6 +13,16 @@ sudo apt-get install nodejs -y
 # install remaining packages
 sudo npm install pm2 -g
 
+# Install python for ansible vault
+sudo apt install python3-pip -y
+
+# Install aws cli
+pip3 install awscli
+pip3 install boto boto3
+sudo apt-get upgrade -y
+
+#To use python3
+alias python=python3
 
 # Add DB_HOST variable to env
 echo "export DB_HOST=mongodb://34.244.178.76:27017/posts" >> .bashrc
