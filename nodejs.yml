@@ -1,53 +1,87 @@
-
+# which host do we need to install nginx in
 - hosts: app
   gather_facts: true
+
+# what facts do we want to see while installing
+
+# do we need admin access? yes
   become: true
+
+# what task do we want to perform in this yml file
   tasks:
+
   - name: Install Nodejs in web Agent Node
     shell: |
       curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && sudo apt-get install nodejs -y
-  # - name: install nodejs
-  #   apt: pkg=nodejs state=present
-    become_user: root
-
-#  - name: Install NPM
-#    shell: |
-#      install npm
-    #apt: pkg=npm state=present
-
-
-  - name: Clone git
-    git:
-      repo: https://github.com/Delwar35/awsFileTransfer
-      dest: /home/ubuntu/app
-      clone: yes
-      update: yes
-
-  - name: download latest npm + Mongoose
+  - name: Install npm and pm2
     shell: |
-      apt install npm -y
-      npm install -g npm@latest
-      npm install mongoose -y
-      npm install express -y
-      set NODE_PATH=app/seeds/seed.js;%NODE_PATH%
-    become_user: root
-  # Downloading pm2
-  - name: Install pm2
-    npm:
-      name: pm2
-      global: yes
+      sudo apt install npm -y
+      sudo npm install pm2 -g
   - name: env variable
     shell: |
       echo 'export DB_HOST="mongodb://34.244.178.76:27017/posts"' >> .bashrc
-  - name: seed + run app
+    become_user: root
+
+
+  - name: Seed and run app
     shell: |
       cd awsFileTransfer/
-      cp -R app/seeds home/ubuntu/seeds
       cd app/
-      npm start
-      #npm install
-      #node seeds/seed.js
+      npm install
+      node seeds/seed.js
       #pm2 kill
       #pm2 start app.js
+    become_user: root
+
+
+# - hosts: app
+#   gather_facts: true
+#   become: true
+#   tasks:
+#   - name: Install Nodejs in web Agent Node
+#     shell: |
+#       curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && sudo apt-get install nodejs -y
+#   # - name: install nodejs
+#   #   apt: pkg=nodejs state=present
+#     become_user: root
+
+# #  - name: Install NPM
+# #    shell: |
+# #      install npm
+#     #apt: pkg=npm state=present
+
+
+#   - name: Clone git
+#     git:
+#       repo: https://github.com/Delwar35/awsFileTransfer
+#       dest: /home/ubuntu/app
+#       clone: yes
+#       update: yes
+
+#   - name: download latest npm + Mongoose
+#     shell: |
+#       apt install npm -y
+#       npm install -g npm@latest
+#       npm install mongoose -y
+#       npm install express -y
+#       set NODE_PATH=app/seeds/seed.js;%NODE_PATH%
+#     become_user: root
+#   # Downloading pm2
+#   - name: Install pm2
+#     npm:
+#       name: pm2
+#       global: yes
+#   - name: env variable
+#     shell: |
+#       echo 'export DB_HOST="mongodb://34.244.178.76:27017/posts"' >> .bashrc
+#   - name: seed + run app
+#     shell: |
+#       cd awsFileTransfer/
+#       cp -R app/seeds home/ubuntu/seeds
+#       cd app/
+#       #npm install
+#       #node seeds/seed.js
+#       #pm2 kill
+#       #pm2 start app.js
 
 
