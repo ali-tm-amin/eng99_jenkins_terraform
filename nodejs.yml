@@ -1,0 +1,42 @@
+
+- hosts: app
+  gather_facts: true
+  become: true
+  tasks:
+ 
+  - name: install nodejs
+    apt: pkg=nodejs state=present
+ #   become_user: root
+
+#  - name: Install NPM
+#    shell: |
+#      install npm
+    #apt: pkg=npm state=present
+
+
+  - name: Clone git
+    git:
+      repo: https://github.com/ali-tm-amin/Eng99App.git
+      dest: /home/vagrant/app
+      clone: yes
+      update: yes
+
+  - name: download latest npm + Mongoose
+    shell: |
+      npm install -g npm@latest
+      npm install mongoose -y
+  # Downloading pm2
+  - name: Install pm2
+    npm:
+      name: pm2
+      global: yes
+
+  - name: seed + run app
+    shell: |
+      cd app/app
+      npm install
+      node seeds/seed.js
+      pm2 kill
+      pm2 start app.js
+
+
