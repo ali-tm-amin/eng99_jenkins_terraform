@@ -13,3 +13,12 @@
   - name: Install Nginx in web agent node
     apt: pkg=nginx state=present
     become_user: root
+  - name: Ansible copy file to remote server
+  copy:
+    src: /etc/ansible/default
+    dest: /etc/nginx/sites-available/default
+# what is the end goal for this task
+# nginx status running
+
+  - name: restart nginx
+    service: name=nginx state=restarted

@@ -1,0 +1,8 @@
+  
+---
+- name: Transfer and execute a script.
+  hosts: app
+  tasks:
+
+     - name: Copy and Execute the script 
+       script: /etc/ansible/provision.sh
