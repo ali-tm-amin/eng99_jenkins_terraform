@@ -14,12 +14,14 @@
     apt: pkg=nginx state=present
     become_user: root
 
-  # - name: Ansible copy file to remote server
-  #   copy:
-  #     src: /etc/ansible/default
-  #     dest: /etc/nginx/sites-available/default
-# what is the end goal for this task
-# nginx status running
+  - name: Setting reverse proxy
+      shell: |
+        git clone https://github.com/Delwar35/awsFileTransfer
+        sudo rm -rf /etc/nginx/sites-available/default
+        cp ./awsFileTransfer/default /etc/nginx/sites-available/default
+      become_user: root
 
-  # - name: restart nginx
-  #   service: name=nginx state=restarted
+  - name: Restart Ngnix
+    shell: |
+      sudo systemctl restart nginx
+    become_user: root
