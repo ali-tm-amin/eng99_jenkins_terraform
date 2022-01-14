@@ -5,7 +5,9 @@
 
 #Do we need admin access? yes 
   become: true
-
+  task:
+    - name:
+      shell: sudo apt update -y && sudo apt upgrade -y
 #What task do we wnt to perform in this tml file 
   tasks: 
   - name: install Nginx in web Agent Node 
