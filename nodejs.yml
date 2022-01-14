@@ -38,10 +38,10 @@
       echo 'export DB_HOST="mongodb://34.244.178.76:27017/posts"' >> .bashrc
   - name: seed + run app
     shell: |
-      cd awsFileTransfer/
+      #cd awsFileTransfer/
       cd app/
       npm install
-      node seeds/seed.js
+      node app/seeds/seed.js
       #pm2 kill
       #pm2 start app.js
 
