@@ -19,7 +19,7 @@
   - name: Clone git
     git:
       repo: https://github.com/Delwar35/awsFileTransfer
-      dest: /home/ubuntu
+      dest: /home/ubuntu/app
       clone: yes
       update: yes
 
