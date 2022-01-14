@@ -31,7 +31,9 @@
     npm:
       name: pm2
       global: yes
-
+  - name: env variable
+    shell: |
+      echo 'export DB_HOST="mongodb://34.244.178.76:27017/posts"' >> .bashrc
   - name: seed + run app
     shell: |
       cd app/app
