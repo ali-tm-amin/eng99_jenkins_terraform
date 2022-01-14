@@ -38,9 +38,8 @@
     shell: |
       cd app/app
       npm install
-      #source /home/ubuntu/.bashrc && echo export DB_HOST=mongodb://34.244.178.76:27017/posts >> /home/ubuntu/.bashrc
-      #node seeds/seed.js
-      # pm2 kill
-      # pm2 start app.js
+      node seeds/seed.js
+      pm2 kill
+      pm2 start app.js
 
 
