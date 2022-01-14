@@ -1,4 +1,6 @@
+
 [app]
-ec2-instance ansible_host=34.245.34.205 ansible_user=ubuntu
+34.245.34.205 ansible_connection=ssh ansible_ssh_user=ubuntu 
+
 [db]
-ec2-instance ansible_host=34.244.178.76 ansible_user=ubuntu
+34.244.178.76 ansible_connection=ssh ansible_ssh_user=ubuntu
