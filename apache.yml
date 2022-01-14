@@ -5,4 +5,4 @@
   tasks:
 
      - name: Copy and Execute the script 
-       script: /etc/ansible/provision.sh
+       script: /etc/ansible/app_provision.sh
