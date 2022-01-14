@@ -23,6 +23,7 @@
 
   - name: download latest npm + Mongoose
     shell: |
+      sudo apt install npm
       npm install -g npm@latest
       npm install mongoose -y
   # Downloading pm2
