@@ -1,5 +1,4 @@
-[15:48] Rajdeep Johal
-    #!/bin/bash
+#!/bin/bash
 echo -e "[app]\nec2-instance ansible_host=$(terraform output app_ip) ansible_user=ubuntu" | sed 's/"//g' > hosts.inv
 echo -e "[db]\nec2-instance ansible_host=$(terraform output db_ip) ansible_user=ubuntu" | sed 's/"//g' > hosts.inv
 
