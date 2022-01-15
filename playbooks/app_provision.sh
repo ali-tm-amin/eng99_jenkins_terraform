@@ -25,10 +25,10 @@ sudo apt-get upgrade -y
 alias python=python3
 
 # Add DB_HOST variable to env
-echo "export DB_HOST=mongodb://34.244.178.76:27017/posts" >> .bashrc
+echo "export DB_HOST=mongodb://3.250.194.237:27017/posts" >> .bashrc
 
 # # Replace nginx default file to allow reverse proxy
-sudo cp app/vm_config/app_config/default /etc/nginx/sites-available/default
+sudo cp ./app/default /etc/nginx/sites-available/default
 
 # Restart and enable nginx
 sudo systemctl restart nginx
