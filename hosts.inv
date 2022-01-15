@@ -4,6 +4,6 @@
 #ec2-instance ansible_host=34.244.178.76 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/eng99.pem 
 
 [app] 
-ec2-instance ansible_host=63.35.163.11 ansible_user=ubuntu
+ec2-instance ansible_host=52.215.25.41 ansible_user=ubuntu
 [db] 
-ec2-instance ansible_host=34.245.191.75 ansible_user=ubuntu
+ec2-instance ansible_host=54.247.31.24 ansible_user=ubuntu

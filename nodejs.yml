@@ -1,4 +1,5 @@
 # which host do we need to install nginx in
+---
 - hosts: app
   gather_facts: true
 
@@ -19,7 +20,7 @@
       sudo npm install pm2 -g
   - name: env variable
     shell: |
-      echo 'export DB_HOST="mongodb://34.245.191.75:27017/posts"' >> .bashrc
+      echo 'export DB_HOST="mongodb://54.247.31.24:27017/posts"' >> .bashrc
       source ~/.bashrc
     become_user: root
 
