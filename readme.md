@@ -69,7 +69,7 @@ https://www.jenkins.io/doc/book/installing/linux/)
 pipeline{
     agent any
     tools {
-        terraform 'terraform-11'
+        terraform 'terraform'
     }
     stages{
         stage("Git Checkout"){
@@ -96,9 +96,9 @@ pipeline{
 
 **Step4:** create another job to be triggered if first job was successful
 
-**Step5:** This job to run playbook to configure Mongodb on db ec2
+This job to run playbook to configure Mongodb on db ec2
 
-**Step6:** 3rd job to run ansible playbook/s to configure nodejs with reverse proxy on app instance
+**Step5:** 3rd job to run ansible playbook/s to configure nodejs with reverse proxy on app instance
 
 **Step7:** ensure to launch node app on public ip with posts working
 
