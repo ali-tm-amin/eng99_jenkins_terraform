@@ -19,9 +19,7 @@
       sudo apt install npm -y
       sudo npm install pm2 -g
   - name: env variable
-    shell: |
-      echo 'export DB_HOST="mongodb://54.247.31.24:27017/posts"' >> .bashrc
-      # source ~/.bashrc
+    shell: echo "export DB_HOST=mongodb://(ip):27017/posts" >> ~/.bashrc 
     become_user: root
 
 
@@ -31,8 +29,8 @@
       cd app/
       npm install
       node seeds/seed.js
-      pm2 kill
-      pm2 start app.js
+      #pm2 kill
+      #pm2 start app.js
     become_user: root
 
 

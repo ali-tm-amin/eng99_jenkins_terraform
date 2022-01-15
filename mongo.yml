@@ -17,14 +17,22 @@
       
   - name: Installing mongodb in db VM
     apt: pkg=mongodb state=present
+  - name: Modify Mongod.conf file, update BindIP to be 0.0.0.0
+    lineinfile:
+      path: /etc/mongodb.conf
+      regexp: '^bind_ip'                                                                                     
+      line: 'bind_ip = 0.0.0.0'                                                                            
+      backrefs: yes                                                                                    
+  - name: Restart and enable mongodb
+    shell: sudo systemctl restart mongodb && sudo systemctl enable mongodb
 
-  - name: restarting db and chnaging conf file
-    shell: |
-      git clone https://github.com/Delwar35/awsFileTransfer
-      sudo rm -rf /etc/mongod.conf
-      sudo cp ./mongod.conf /etc/mongod.conf
-      sudo systemctl restart mongodb
-      sudo systemctl enable mongodb
+  # - name: restarting db and chnaging conf file
+  #   shell: |
+  #     git clone https://github.com/Delwar35/awsFileTransfer
+  #     sudo rm -rf /etc/mongod.conf
+  #     sudo cp ./mongod.conf /etc/mongod.conf
+  #     sudo systemctl restart mongodb
+  #     sudo systemctl enable mongodb
     become_user: root
 
   # tasks:

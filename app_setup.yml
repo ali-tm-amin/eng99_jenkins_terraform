@@ -1,0 +1,16 @@
+---
+- hosts: app
+  gather_facts: true
+  become: true
+  tasks:
+  - name: Update and Upgrade
+    shell: sudo apt-get update -y && sudo apt-get upgrade -y
+
+  - name: Install Git
+    shell: sudo apt-get install git -y
+
+  - name: remove repo
+    shell: rm -rf terraform
+
+  - name: Clone Repo
+    shell: git clone https://github.com/ali-tm-amin/eng99_jenkins_terraform.git
