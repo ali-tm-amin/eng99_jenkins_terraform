@@ -10,9 +10,11 @@
 
 # What task do we want to perform in this yml file?
   tasks:
+   - name: update and upgrade
+    shell: sudo apt-get update -y && sudo apt-get upgrade -y
   - name: Install Nginx in web agent node
     apt: pkg=nginx state=present
-  
+    become_user: root
 
   - name: Setting reverse proxy
       shell: |
@@ -24,4 +26,4 @@
   - name: Restart Ngnix
     shell: |
       sudo systemctl restart nginx
-    become_user: root
+    
