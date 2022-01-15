@@ -12,6 +12,9 @@
 
 - name: Install DB
   import_playbook: mongo.yml
+  
+- name: Install app
+  import_playbook: app_setup.yml
 
 - name: Install app
   import_playbook: nginx.yml
