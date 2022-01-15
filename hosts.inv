@@ -1,4 +1,0 @@
-[app]
-18.203.139.180 ansible_user=ubuntu
-[db]
-34.250.50.175 ansible_user=ubuntu
