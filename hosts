@@ -1,2 +1,5 @@
-[db] 
-ec2-instance ansible_host=54.75.117.111 ansible_user=ubuntu
+[awsweb]
+ec2-instance ansible_host=ec2-ip ansible_user=ubuntu 
+
+[awsdb]
+ec2-instance ansible_host=ec2-ip ansible_user=ubuntu
