@@ -15,10 +15,10 @@
   
 
   - name: Setting reverse proxy
-      shell: scp ./app/default /etc/nginx/sites-available/default
+      shell: |
         #git clone https://github.com/ali-tm-amin/eng99_jenkins_terraform.git
-        #sudo rm -rf /etc/nginx/sites-available/default
-        #scp /home/ubuntu/eng99_jenkins_terraform/app/default /etc/nginx/sites-available/default
+        sudo rm -rf /etc/nginx/sites-available/default
+        scp ./app/default /etc/nginx/sites-available/default
       
 
   - name: Restart Ngnix
