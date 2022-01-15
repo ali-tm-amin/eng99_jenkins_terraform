@@ -33,7 +33,7 @@ sudo cp app/vm_config/app_config/default /etc/nginx/sites-available/default
 # Restart and enable nginx
 sudo systemctl restart nginx
 sudo systemctl enable nginx
-echo test.txt
+
 
 # Everything up till here work
 #  Seed the database

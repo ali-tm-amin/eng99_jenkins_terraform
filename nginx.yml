@@ -12,14 +12,14 @@
   tasks:
   - name: Install Nginx in web agent node
     apt: pkg=nginx state=present
-    become_user: root
+  
 
   - name: Setting reverse proxy
       shell: |
-        git clone https://github.com/Delwar35/awsFileTransfer
+        git clone https://github.com/ali-tm-amin/eng99_jenkins_terraform.git
         sudo rm -rf /etc/nginx/sites-available/default
-        cp ./awsFileTransfer/default /etc/nginx/sites-available/default
-      become_user: root
+        cp ./terraform/default /etc/nginx/sites-available/default
+      
 
   - name: Restart Ngnix
     shell: |

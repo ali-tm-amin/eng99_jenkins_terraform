@@ -12,15 +12,14 @@
   tasks:
 
   - name: Install Nodejs in web Agent Node
-    shell: |
-      curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && sudo apt-get install nodejs -y
+    shell: curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && sudo apt-get install nodejs -y
   - name: Install npm and pm2
     shell: |
       sudo apt install npm -y
       sudo npm install pm2 -g
   - name: env variable
     shell: echo "export DB_HOST=mongodb://(ip):27017/posts" >> ~/.bashrc 
-    become_user: root
+  
 
 
   - name: Seed and run app
