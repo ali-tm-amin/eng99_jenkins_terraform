@@ -1,5 +1,0 @@
-[awsweb]
-ec2-instance ansible_host=ec2-ip ansible_user=ubuntu 
-
-[awsdb]
-ec2-instance ansible_host=ec2-ip ansible_user=ubuntu
