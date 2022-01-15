@@ -18,7 +18,7 @@
       shell: |
         git clone https://github.com/ali-tm-amin/eng99_jenkins_terraform.git
         sudo rm -rf /etc/nginx/sites-available/default
-        cp ./eng99_jenkins_terraform/default /etc/nginx/sites-available/default
+        cp scp /home/ubuntu/eng99_jenkins_terraform/app/default /etc/nginx/sites-available/default
       
 
   - name: Restart Ngnix
