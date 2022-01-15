@@ -37,6 +37,14 @@ resource "aws_instance" "db_instance" {
   }
 }
 
+output "app_instance_ip" {
+  value = aws_instance.app_instance.public_ip
+}
+
+output "db_instance_ip" {
+  value = aws_instance.db_instance.public_ip
+}
+
 resource "aws_vpc" "eng99_ali_terraform_VPC"{
   cidr_block = var.cidr_block
 

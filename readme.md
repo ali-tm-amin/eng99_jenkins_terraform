@@ -15,16 +15,16 @@ https://www.jenkins.io/doc/book/installing/linux/)
 
 3. Install suggested plugins
 
-4. Install `CloudBees AWS Credentials Plugin`
+4. Install `CloudBees AWS Credentials` Plugin
 
 5. Install `Ansible` plugins
  - Go to jenkins `Global Configurations` find `ansible` add put name and the path to ansible on the ec2 instance:
-- On the terminal `which ansible` 
+- On the terminal check its directory `which ansible` 
 - /usr/ansible only add `/usr/` to the path on jenkins config
 
 ![](/images/jenkins_ansible.png)
 
-6. Install `terraform`
+6. [Install terraform](https://www.terraform.io/cli/install/apt)
 
         - Go inside the Linux Server Terminal
         - Become root user: sudo su
@@ -55,7 +55,7 @@ https://www.jenkins.io/doc/book/installing/linux/)
 ![](/images/credentials.png)
     
     
-11. Install ansible on ec2 instance 
+11. [Install ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) on ec2 instance 
  - [follow this link](https://www.ktexperts.com/how-to-install-ansible-in-amazon-linux-machine/)
 
 
