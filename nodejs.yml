@@ -18,13 +18,13 @@
       sudo apt install npm -y
       sudo npm install pm2 -g
   - name: env variable
-    shell: echo "export DB_HOST=mongodb://3.250.194.237:27017/posts" >> ~/.bashrc 
+    shell: echo "export DB_HOST=mongodb://54.170.169.14:27017/posts" >> ~/.bashrc 
   
 
 
   - name: Seed and run app
     shell: |
-      cd awsFileTransfer/
+      #cd awsFileTransfer/
       cd app/
       npm install
       node seeds/seed.js
