@@ -18,7 +18,7 @@
       sudo apt install npm -y
       sudo npm install pm2 -g
   - name: env variable
-    shell: echo "export DB_HOST=mongodb://34.244.200.213:27017/posts" >> ~/.bashrc 
+    shell: echo "export DB_HOST=mongodb://3.250.194.237:27017/posts" >> ~/.bashrc 
   
 
 
