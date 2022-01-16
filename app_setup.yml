@@ -12,5 +12,5 @@
   - name: remove repo
     shell: rm -rf terraform
 
-  - name: Clone Repo
-    shell: git clone https://github.com/ali-tm-amin/eng99_jenkins_terraform.git
+  # - name: Clone Repo
+  #   shell: git clone https://github.com/ali-tm-amin/eng99_jenkins_terraform.git
