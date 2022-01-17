@@ -34,7 +34,6 @@ echo "export DB_HOST=mongodb://3.251.89.37:27017/posts" >> .bashrc
 sudo systemctl restart nginx
 sudo systemctl enable nginx
 
-username ALL = NOPASSWD: /fullpath/to/command, /fullpath/to/othercommand
 
 # Everything up till here work
 #  Seed the database
