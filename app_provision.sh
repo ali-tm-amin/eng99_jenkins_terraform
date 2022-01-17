@@ -22,13 +22,13 @@ pip3 install boto boto3
 sudo apt-get upgrade -y
 
 #To use python3
-alias python=python3
+#alias python=python3
 
 # Add DB_HOST variable to env
 echo "export DB_HOST=mongodb://3.251.89.37:27017/posts" >> .bashrc
 
 # # Replace nginx default file to allow reverse proxy
-sudo cp ./app/default /etc/nginx/sites-available/default
+#sudo cp ./app/default /etc/nginx/sites-available/default
 
 # Restart and enable nginx
 sudo systemctl restart nginx
