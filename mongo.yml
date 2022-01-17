@@ -13,7 +13,7 @@
     shell: |
       sudo apt-get update -y
       sudo apt-get upgrade -y
-      
+    become_user: root  
       
   - name: Installing mongodb in db VM
     apt: pkg=mongodb state=present

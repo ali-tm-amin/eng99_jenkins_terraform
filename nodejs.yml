@@ -24,7 +24,6 @@
 
   - name: Seed and run app
     shell: |
-
       cd app/
       npm install
       node seeds/seed.js
