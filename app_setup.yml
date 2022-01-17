@@ -17,9 +17,9 @@
     #cd eng99_jenkins_terraform/
     #cd app/
 
-  - name: run the provisioning file
-    shell: |
-    cd terraform/
-    chmod +x app_provision.sh && ./app_provision.sh
-    become_user: root
+  # - name: run the provisioning file
+  #   shell: |
+  #   cd terraform/
+  #   chmod +x app_provision.sh && ./app_provision.sh
+  #   become_user: root
   
