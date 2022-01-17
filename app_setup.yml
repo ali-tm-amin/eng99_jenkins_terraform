@@ -13,11 +13,11 @@
     shell: rm -rf terraform
 
   - name: Clone Repo
-    shell: |
-    git clone https://github.com/ali-tm-amin/eng99_jenkins_terraform.git
+    shell: git clone https://github.com/ali-tm-amin/eng99_jenkins_terraform.git
     #cd eng99_jenkins_terraform/
     #cd app/
-    chmod +x app_provision.sh
-    ./app_provision.sh
+
+  - name: run the provisioning file
+    shell: chmod +x app_provision.sh && ./app_provision.sh
     
   
